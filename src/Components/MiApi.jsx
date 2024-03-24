@@ -56,16 +56,18 @@ const MiApi = ({ search }) => {
             <th>Local</th>
             <th>Día</th>
             <th>Horario</th>
+            <th>Dirección</th>
             <th>Teléfono</th>
           </tr>
         </thead>
         <tbody>
           {filteredResult.map((data) => (
-            <tr key={data.local_id}>
+            <tr key={`${data.funcionamiento_dia} - ${data.local_id}`}>
               <td>{data.comuna_nombre}</td>
               <td>{data.local_nombre}</td>
               <td>{data.funcionamiento_dia}</td>
               <td>{`${data.funcionamiento_hora_apertura} - ${data.funcionamiento_hora_cierre}`}</td>
+              <td>{data.local_direccion}</td>
               <td>{data.local_telefono}</td>
             </tr>
           ))}
